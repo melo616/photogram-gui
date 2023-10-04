@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @the_user = matching_usernames.at(0)
 
     # if @the_user == nil
-    #   redirect_to("/404")
+    #   redirect_to("/404" )
     # else
     #   render({ :templates => "user_templates/show"})
     # end
@@ -20,6 +20,9 @@ class UsersController < ApplicationController
 
   def insert_new_user
     u = User.new
+    u.username = params.fetch("username")
+
+    u.save
     
     redirect_to("/users")
   end
