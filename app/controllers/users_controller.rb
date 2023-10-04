@@ -17,4 +17,10 @@ class UsersController < ApplicationController
     # end
     render({ :template => "user_templates/show" })
   end
+
+  def insert_new_user
+    u = User.new
+    
+    redirect_to("/users")
+  end
 end

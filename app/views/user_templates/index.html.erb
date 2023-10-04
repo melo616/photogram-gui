@@ -1,5 +1,15 @@
 <h1>List of users</h1>
 
+<form action="/insert_new_user" method="post">
+  <label for="username_box">Username</label>
+  <input type="text" id="username_box" name="username">
+  <button>
+    Add user
+  </button>
+</form>
+
+<hr>
+
 <table border="1">
   <tr>
     <th>
@@ -16,7 +26,7 @@
     <tr>
       <td><%= a_user.id %></td>
       <td><%= a_user.username %></td>
-      <td><a href="/users/<%= a_user.username %>">See details</a></td>
+      <td><a href="/users/<%= a_user.username %>">Show details</a></td>
     </tr>
 
   <% end %>
