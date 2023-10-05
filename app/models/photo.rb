@@ -15,6 +15,7 @@
 class Photo < ApplicationRecord
   validates(:poster, { :presence => true })
 
+  # gets the poster using the id of an instance of the photo class
   def poster
     my_owner_id = self.owner_id
 

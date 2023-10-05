@@ -10,12 +10,12 @@ class UsersController < ApplicationController
     matching_usernames = User.where({ :username => url_username })
     @the_user = matching_usernames.at(0)
 
-    # if @the_user == nil
-    #   redirect_to("/404" )
-    # else
-    #   render({ :templates => "user_templates/show"})
-    # end
-    render({ :template => "user_templates/show" })
+    if @the_user == nil
+      redirect_to("/404" )
+    else
+      render({ :template => "user_templates/show"})
+    end
+    # render({ :template => "user_templates/show" })
   end
 
   def insert_new_user
