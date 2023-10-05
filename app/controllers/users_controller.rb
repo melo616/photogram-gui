@@ -15,15 +15,21 @@ class UsersController < ApplicationController
     else
       render({ :template => "user_templates/show"})
     end
-    # render({ :template => "user_templates/show" })
   end
 
-  def insert_new_user
+  def create
     u = User.new
     u.username = params.fetch("username")
 
     u.save
     
-    redirect_to("/users")
+    redirect_to("/users/#{u.username}")
+  end
+
+  def update
+    the_user = User.where({ :id => params.fetch("path_id")}).at(0)
+    the_user.username = params.fetch("username")
+    the_user.save
+    redirect_to("/users/#{the_user.username}")
   end
 end
